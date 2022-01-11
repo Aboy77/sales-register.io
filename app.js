@@ -39,4 +39,4 @@ app.use(express.static(path.join(__dirname, "src", "public")))
 
 // Server init
 
-app.listen(app.get("port"), () => console.log(path.join(__dirname, "src","public")));
+app.listen(app.get("port"), () => console.log("port 3000"));
