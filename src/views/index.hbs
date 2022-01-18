@@ -1,16 +1,47 @@
-<table>
-    <thead>
+<body class="body-app">
 
-        <th>Nombre</th>
-        <th>precio</th>
-        <th>Cantidad</th>
-        <th>Total</th>
-        <th>Fecha</th>
+    <header class="flex flex-dir-col flex-j-c-space-b">
+        <div class="container">
+            <div class="flex flex-j-c-space-b flex-a-i-center">
+                <h1>Myblin</h1>
+                <nav>
+                    <a href="/">Home</a>
+                    <a href="/add/register">Add new</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div class="flex flex-dir-col flex-j-c-center flex-a-i-center full-height">
+        <table>
+            <thead>
 
-    </thead>
-    <tbody>
-        <tr>
-            <td colspan="6" class="t-c">No se encuentran registros aun</td>
-        </tr>
-    </tbody>
-</table>
+                <th class="t-c">Nombre</th>
+                <th class="t-c">precio</th>
+                <th class="t-c">Cantidad</th>
+                <th class="t-c">Total</th>
+                <th class="t-c">Fecha</th>
+                <th class="t-c">Eliminar</th>
+
+            </thead>
+            <tbody>
+                {{#each data}}
+                <tr>
+                    <td class="t-c">{{product}}</td>
+                    <td class="t-c">700</td>
+                    <td class="t-c">{{quantity}}</td>
+                    <td class="t-c">{{total}}</td>
+                    <td class="t-c">{{date}}</td>
+                    <td class="t-c"><a href="/data/delete/{{_id}}">X</a></td>
+                </tr>
+
+                {{else}}
+                <td class="t-c" colspan="6">Sin datos</td>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</body>

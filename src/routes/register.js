@@ -27,8 +27,15 @@ router.post("/add/new", async(req,res) => {
         error = [];
         const newRegister = new Register({product, quantity, total});
         await newRegister.save();
+        req.flash("success_msg", "Guardado exitosamente")
         res.redirect("/")
     }
+})
+
+router.get("/data/delete/:id", async(req,res) => {
+    await Register.findByIdAndDelete(req.params.id)
+    req.flash("success_msg", "Eliminado exitosamente")
+    res.redirect("/")
 })
 
 module.exports = router;

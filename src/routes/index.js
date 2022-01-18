@@ -1,8 +1,13 @@
 const express = require("express");
 const router = express.Router();
+const Register = require("../models/Register");
 
-router.get("/", (req,res) => {
-    res.render("index")
+router.get("/", async(req,res) => {
+    const data = await Register.find({}).lean().sort({_id: "desc"});
+    console.log(data)
+    res.render("index", {
+        data
+    })
 })
 
 
